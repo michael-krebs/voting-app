@@ -1,7 +1,25 @@
+/* NAVBAR */
+
+.brand-logo {
+    margin-left: 20px;
+}
+
 /* INDEX */
 
 .btn-index {
     display: block;
     text-align: center;
-    width: 100%;
+    margin: auto;
+    width: 75%;
+}
+
+.header-index {
+    margin: 50px;
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 100px;
 }

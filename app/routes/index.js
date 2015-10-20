@@ -31,6 +31,16 @@ module.exports = function (app, passport) {
 			res.redirect('/login');
 		});
 
+	app.route('/newpoll')
+		.get(isLoggedIn, function (req, res) {
+			res.render(path + '/public/newpoll.jade');
+		});
+
+	app.route('/viewpolls')
+		.get(isLoggedIn, function (req, res) {
+			res.render(path + '/public/viewpolls.jade');
+		});
+		
 	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
 			res.sendFile(path + '/public/profile.html');
