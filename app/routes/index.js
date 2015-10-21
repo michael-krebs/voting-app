@@ -52,7 +52,7 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			res.json(req.user.github);
 		});
-
+		
 	app.route('/auth/github')
 		.get(passport.authenticate('github'));
 
@@ -66,4 +66,10 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, clickHandler.getClicks)
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);
+		
+	app.route('/api/:id/polls')
+		.post(isLoggedIn, function(req, res) {
+			console.log(Object.keys(req).join(' '));
+			//res.render(path + '/public/viewpolls.jade')
+	});
 };

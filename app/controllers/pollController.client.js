@@ -2,19 +2,31 @@
 
 (function() {
 
-	var apiUrl = window.location.origin + "/app/:id/polls";
+	var apiUrl = window.location.origin + "/api/:id/polls";
 	
 	$( '#options' ).click( function() {
 		$( '#options-input' ).append('<input placeholder="Option" class="option" type="text"></input>');
 	});
 
 	$('#submitButton').click( function() {
-		var data = { poll_name: null, poll_options: [] };
-		data.poll_name = $('#name').val();
+		var data = { name: "", options: [] };
+		data.name = $('#name').val();
 		$('.option').each(function() {
-    		data.poll_options.push($(this).val());
+			if ($(this).val() !== "") {
+    			data.options.push($(this).val());
+			}
 		});
-		console.log(data);
+		if (data.name === "" || data.options.length < 2) {
+			// alert user
+		} else {
+			$.post(apiUrl, data, function(data) {
+				if (data) {
+					console.log("Got this data: " + data);
+				}
+				
+				//window.location.replace(window.location.origin + "/viewpolls");
+			})
+		}
 	});
 
    

@@ -9,13 +9,12 @@ block content
 				input(id="name" type="text")
 				label(for="name") Poll Name
 			#options-input.input-field
-				input(placeholder="Option" class="option" type="text")
-				input(placeholder="Option" class="option" type="text")
+				input(placeholder="Option" type="text").option
+				input(placeholder="Option" type="text").option
 	.row
 		.col.l2.offset-l5.s4.offset-s4
 			#options.btn.waves-effect.waves-light Add Option
 			#submitButton.btn.waves-effect.waves-light Submit
 
 block javascript
-
 	script(type="text/javascript" src="controllers/pollController.client.js")
