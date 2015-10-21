@@ -1,7 +1,15 @@
+.container {
+    margin-top: 50px;
+}
+
 /* NAVBAR */
 
 .brand-logo {
     margin-left: 20px;
+}
+
+nav {
+    margin-bottom: 50px;
 }
 
 /* INDEX */
