@@ -5,12 +5,13 @@ var Schema = mongoose.Schema;
 
 var Poll = new Schema({
 	userId : String,
-	name : String,
+	username : String,
+	pollName : String,
 	url : String,
 	options : [ {
 		text : String,
 		votes : [ String ]
-	}],
+	}]
 });
 
 module.exports = mongoose.model('Poll', Poll);

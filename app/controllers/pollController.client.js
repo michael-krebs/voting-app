@@ -12,8 +12,9 @@
 		var data = { name: "", options: [] };
 		data.name = $('#name').val();
 		$('.option').each(function() {
-			if ($(this).val() !== "") {
-    			data.options.push($(this).val());
+			var optionText = $(this).val();
+			if (optionText !== "") {
+    			data.options.push({ text: optionText, votes: [] });
 			}
 		});
 		if (data.name === "" || data.options.length < 2) {
