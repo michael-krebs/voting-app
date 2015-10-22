@@ -9,24 +9,21 @@
 	});
 
 	$('#submitButton').click( function() {
-		var data = { name: "", options: [] };
-		data.name = $('#name').val();
+		var data = { pollName: "", options: [] };
+		data.pollName = $('#name').val();
 		$('.option').each(function() {
 			var optionText = $(this).val();
 			if (optionText !== "") {
     			data.options.push({ text: optionText, votes: [] });
 			}
 		});
-		if (data.name === "" || data.options.length < 2) {
+		if (data.pollName === "" || data.options.length < 2) {
 			// alert user
 		} else {
 			$.post(apiUrl, data, function(data) {
-				if (data) {
-					console.log("Got this data: " + data);
-				}
-				
-				//window.location.replace(window.location.origin + "/viewpolls");
-			})
+			});
+			
+			window.location.replace(window.location.origin + "/viewpolls");
 		}
 	});
 

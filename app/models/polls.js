@@ -7,7 +7,6 @@ var Poll = new Schema({
 	userId : String,
 	username : String,
 	pollName : String,
-	url : String,
 	options : [ {
 		text : String,
 		votes : [ String ]

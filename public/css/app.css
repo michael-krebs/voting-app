@@ -9,7 +9,7 @@
 }
 
 nav {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
 
 /* INDEX */
@@ -25,10 +25,26 @@ nav {
     margin: 50px;
 }
 
+/* NEW POLL */
 
+#options {
+    float: right;
+    margin-top: 20px;
+}
+
+#submitButton {
+    margin-top: 20px;
+}
+
+/* VIEW YOUR POLLS */
+
+#poll-list {
+    text-align: center;
+    padding-top: 25px;
+}
 /* FOOTER */
 
 footer {
     margin-top: 100px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
