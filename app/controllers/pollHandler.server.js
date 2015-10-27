@@ -32,7 +32,41 @@ function PollHandler () {
 	
 	this.getPoll = function(req, res) {
 		
-		console.log(req.params.pollid)
+		Polls
+			.findOne({ _id : req.params.pollid })
+			.exec(function(err, result) {
+				if (err) {
+					throw err;
+				}
+				res.json(result);
+			});
+		
+	}
+	
+	this.vote = function(req, res) {
+		
+		Polls
+		  .findOne({ _id : req.params.pollid })
+		  .exec(function(err, result) {
+		  	result.options[req.body.optionIndex].votes.push( req.body.userId );
+		  	Polls
+		  		.update({ _id : req.params.pollid }, result)
+		  		.exec(function(err) {
+		  			if (err) { console.log("err") };
+		  			res.send();
+		  		});
+		  })
+	}
+	
+	this.deletePoll = function(req, res) {
+		
+		Polls
+		  .findByIdAndRemove(req.params.pollid)
+			.exec(function(err, result) {
+				if (err) {
+					console.log(err);
+				}
+			})
 	}
 	
 }

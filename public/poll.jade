@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	.row
+		.col.s12
+			h3.center-align#poll-name
+			h5.center-align#poll-author
+			.col.s6.offset-s4
+				form.optionsForm
+					#options
+	.row
+		.col.l8.s10.offset-l2.offset-s1
+			.pollButtons
+				#voteButton.btn.waves-effect.waves-light Vote
+				#deleteButton.btn.waves-effect.waves-light.red Delete
+			
+block javascript
+	script(type="text/javascript" src="/controllers/poll.js")
+	#hidden #{_id}

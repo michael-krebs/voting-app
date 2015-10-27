@@ -10,6 +10,14 @@
 
 nav {
     margin-bottom: 35px;
+ 
+}
+
+/* LOGIN */
+
+.gh-login {
+    height: auto;
+    vertical-align: middle;
 }
 
 /* INDEX */
@@ -27,7 +35,7 @@ nav {
 
 /* NEW POLL */
 
-#options {
+#optionsButton {
     float: right;
     margin-top: 20px;
 }
@@ -42,7 +50,49 @@ nav {
     text-align: center;
     padding-top: 25px;
 }
+
+/* DISPLAY POLL */
+
+.pollOption {
+    text-align: center;
+    color: #272727;
+}
+
+label {
+    color: #272727;
+}
+
+.pollButtons {
+    text-align: center;
+}
+
+#poll-author {
+    padding-bottom: 20px;
+}
+#voteButton {
+    margin: 10px;
+}
+
+#deleteButton {
+    margin: 10px;
+}
+
+#options {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+span {
+    margin-right: 15px;
+    font-size: 1.25em;
+    vertical-align: middle;
+}
+
 /* FOOTER */
+
+#hidden {
+    display: none;
+}
 
 footer {
     margin-top: 100px;

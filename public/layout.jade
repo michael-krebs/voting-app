@@ -1,15 +1,21 @@
 doctype html
-meta(name='viewport', content='width=device-width, initial-scale=.75')
+meta(name='viewport', content='width=device-width, initial-scale=.65')
 html.grey.lighten-5
 	link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css")
-	link(rel="stylesheet" href="public/css/app.css")
+	link(rel="stylesheet" href="/public/css/app.css")
+	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+
 	title YouVote
 	.container.z-depth-1.white
 		header
 			nav
 				.nav-wrapper
 					a(href="/").brand-logo YouVote
-					ul#nav-mobile.right
+					ul#nav-mobile.right.hide-on-med-and-down
+						li
+							a(href="/viewpolls") View Polls
+						li
+							a(href="/newpoll") New Poll
 						li
 							a(href="/login") Login
 		
@@ -24,5 +30,6 @@ html.grey.lighten-5
 	
 	script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
 	script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js")
+
 		
 	block javascript

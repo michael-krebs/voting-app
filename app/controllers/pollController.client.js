@@ -4,7 +4,7 @@
 
 	var apiUrl = window.location.origin + "/api/:id/polls";
 	
-	$( '#options' ).click( function() {
+	$( '#optionsButton' ).click( function() {
 		$( '#options-input' ).append('<input placeholder="Option" class="option" type="text"></input>');
 	});
 

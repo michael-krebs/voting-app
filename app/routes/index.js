@@ -43,14 +43,31 @@ module.exports = function (app, passport) {
 			res.render(path + '/public/viewpolls.jade');
 		});
 		
-	app.route('/profile')
-		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/profile.jade');
-		});
+	app.route('/poll/:pollid')
+		.get(function(req, res) {
+			res.render(path + '/public/poll.jade', { _id : req.params.pollid } );
+		})
+		.post(function(req, res, next) {
+			if (req.isAuthenticated()) {
+				return next();
+			} else {
+				res.send("no login");
+			}
+		}, pollHandler.vote)
+		.delete(isLoggedIn, pollHandler.deletePoll);
 
 	app.route('/api/:id')
 		.get(isLoggedIn, function (req, res) {
 			res.json(req.user.github);
+		});
+		
+	app.route('/api/user_data')
+		.get(function (req, res) {
+			if (!(req.isAuthenticated())) {
+	            res.json({});
+	        } else {
+	            res.json({ userId: req.user.github.id });
+        	}
 		});
 		
 	app.route('/auth/github')
@@ -61,11 +78,6 @@ module.exports = function (app, passport) {
 			successRedirect: '/',
 			failureRedirect: '/login'
 		}));
-
-	app.route('/api/:id/clicks')
-		.get(isLoggedIn, clickHandler.getClicks)
-		.post(isLoggedIn, clickHandler.addClick)
-		.delete(isLoggedIn, clickHandler.resetClicks);
 	
 	app.route('/api/poll/:pollid/')
 	  .get(pollHandler.getPoll);
